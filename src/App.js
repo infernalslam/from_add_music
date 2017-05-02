@@ -8,20 +8,33 @@ class App extends Component {
   constructor () {
     super()
     this.state = {
-      list: []
+      list: [],
+      params: {}
     }
+  }
+  add (data) {
+    console.log('data : ', data)
+  }
+  search (keyword) {
+    console.log(keyword)
+    // let params = {
+    //   part: 'snippet',
+    //   q: keyword,
+    //   maxResults: 50
+    // }
+    // this.setState({})
   }
   render () {
     return (
       <div>
-        <Search />
+        <Search search={this.search.bind(this)} />
         <div className='columns'>
           <div className='column'>
             <br />
             <Youtube />
           </div>
           <div className='column'>
-            <Form />
+            <Form add={this.add.bind(this)} />
           </div>
         </div>
       </div>
