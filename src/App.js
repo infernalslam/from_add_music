@@ -29,7 +29,11 @@ class App extends Component {
     client.search(params, function (err, data) {
       if (err) console.log(err)
       vm.setState({ list: data.items })
+      console.log(vm.state.list)
     })
+  }
+  listYoutube (id, title, pic) {
+    console.log(id, title, pic)
   }
   render () {
     return (
@@ -38,10 +42,17 @@ class App extends Component {
         <div className='columns'>
           <div className='column'>
             <br />
-            <Youtube />
+            {
+              this.state.list.map((item) => {
+                console.log(item)
+                return (
+                  <Youtube listYoutube={this.listYoutube} id={item.id.videoId} title={item.snippet.title} pic={item.snippet.thumbnails.high.url} />
+                )
+              }) 
+            }
           </div>
           <div className='column'>
-            <Form add={this.add.bind(this)} />
+            <Form add={this.add} />
           </div>
         </div>
       </div>
