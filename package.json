@@ -9,7 +9,8 @@
     "antd": "^2.9.3",
     "react": "^15.5.4",
     "react-bootstrap": "^0.31.0",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "youtube-finder": "^1.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
