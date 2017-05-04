@@ -11,9 +11,10 @@ class App extends Component {
     super()
     this.state = {
       list: [],
-      params: {}
+      tracks: []
     }
     this.search = this.search.bind(this)
+    this.listYoutube = this.listYoutube.bind(this)
   }
   add (data) {
     console.log('data : ', data)
@@ -33,7 +34,14 @@ class App extends Component {
     })
   }
   listYoutube (id, title, pic) {
-    console.log(id, title, pic)
+    let data = {
+      id: id,
+      title: title,
+      pic: pic
+    }
+    this.state.tracks.push(data)
+    this.setState({tracks: this.state.tracks})
+    console.log(this.state.tracks)
   }
   render () {
     return (
